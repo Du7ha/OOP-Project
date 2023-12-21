@@ -1,15 +1,17 @@
 package geometricobject;
 
 public class Rectangle {
-    private double width;
-    private double height;
+    private double width=0;
+    private double height=0;
 
     public Rectangle() {
     }
 
     public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
+        if(width>0 && height>0){
+            this.width = width;
+            this.height = height;
+        }  
     }
 
     public double getWidth() {
@@ -17,7 +19,9 @@ public class Rectangle {
     }
 
     public void setWidth(double width) {
-        this.width = width;
+        if(width>0){
+            this.width = width;
+        } 
     }
 
     public double getHeight() {
@@ -25,7 +29,10 @@ public class Rectangle {
     }
 
     public void setHeight(double height) {
-        this.height = height;
+        if(height>0){
+            this.height = height;
+        } 
+        
     }
     
     public double getArea() {
