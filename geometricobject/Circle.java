@@ -1,17 +1,21 @@
 package geometricobject;
 
 public class Circle {
-    private double radius;
+    private double radius=0;
     
     public Circle(){
     }
     
     public Circle(double radius) {
-        this.radius = radius;
+        if(radius>0){
+           this.radius = radius; 
+        }
     }
 
     public void setRadius(double radius) {
-        this.radius = radius;
+        if(radius>0){
+           this.radius = radius; 
+        }
     }
 
     public double getRadius() {
