@@ -1,6 +1,6 @@
 package geometricobject;
 
-import java.awt.FlowLayout;
+//import java.awt.FlowLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -81,9 +81,6 @@ public class GeometricObject extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         String shape = (String) shapesCB.getSelectedItem();
-        //double width = Double.parseDouble(widthTextField.getText());
-        //double height = Double.parseDouble(heightTextField.getText());
-        //double radius = Double.parseDouble(radiusTextField.getText());
         
         if (shape.equals("Circle")) {
             double radius = Double.parseDouble(radiusTextField.getText());
@@ -97,11 +94,21 @@ public class GeometricObject extends JFrame implements ActionListener {
             areaLabel.setText("Area: " + object.getArea());
             perimeterLabel.setText("Perimeter: " + object.getPerimeter());
         } else {
-            double width = Double.parseDouble(widthTextField.getText());
-            double height = Double.parseDouble(heightTextField.getText());
-            Square object = new Square(width);
-            areaLabel.setText("Area: " + object.getArea());
-            perimeterLabel.setText("Perimeter: " + object.getPerimeter());
+            String flag1=widthTextField.getText();
+            String flag2=heightTextField.getText();
+            
+            if(flag1.isEmpty()){
+                double height = Double.parseDouble(heightTextField.getText());
+                Square object = new Square(height);
+                areaLabel.setText("Area: " + object.getArea());
+                perimeterLabel.setText("Perimeter: " + object.getPerimeter());
+            }
+            if(flag2.isEmpty()){
+                double width = Double.parseDouble(widthTextField.getText());
+                Square object = new Square(width);
+                areaLabel.setText("Area: " + object.getArea());
+                perimeterLabel.setText("Perimeter: " + object.getPerimeter());
+            }
         } 
     }
 }
