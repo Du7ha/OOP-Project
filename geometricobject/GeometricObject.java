@@ -90,9 +90,15 @@ public class GeometricObject extends JFrame implements ActionListener {
         } else if (shape.equals("Rectangle")) {
             double width = Double.parseDouble(widthTextField.getText());
             double height = Double.parseDouble(heightTextField.getText());
-            Rectangle object = new Rectangle(width, height);
-            areaLabel.setText("Area: " + object.getArea());
-            perimeterLabel.setText("Perimeter: " + object.getPerimeter());
+            if(width==height){
+                areaLabel.setText("This is a square");
+                perimeterLabel.setText("This is a square");
+            }else{
+                Rectangle object = new Rectangle(width, height);
+                areaLabel.setText("Area: " + object.getArea());
+                perimeterLabel.setText("Perimeter: " + object.getPerimeter());    
+            }
+            
         } else {
             String flag1=widthTextField.getText();
             String flag2=heightTextField.getText();
@@ -103,11 +109,22 @@ public class GeometricObject extends JFrame implements ActionListener {
                 areaLabel.setText("Area: " + object.getArea());
                 perimeterLabel.setText("Perimeter: " + object.getPerimeter());
             }
-            if(flag2.isEmpty()){
+            else if(flag2.isEmpty()){
                 double width = Double.parseDouble(widthTextField.getText());
                 Square object = new Square(width);
                 areaLabel.setText("Area: " + object.getArea());
                 perimeterLabel.setText("Perimeter: " + object.getPerimeter());
+            }else{
+                double height = Double.parseDouble(heightTextField.getText());
+                double width = Double.parseDouble(widthTextField.getText());
+                if(height!=width){
+                    areaLabel.setText("This is a rectangle");
+                    perimeterLabel.setText("This is a rectangle");
+                }else{
+                    Square object = new Square(width);
+                    areaLabel.setText("Area: " + object.getArea());
+                    perimeterLabel.setText("Perimeter: " + object.getPerimeter()); 
+                }
             }
         } 
     }
